@@ -1,1 +1,22 @@
-bin/\nobj/\n*.user\n.vs/
+## .NET
+bin/
+obj/
+*.user
+*.suo
+.vs/
+*.DotSettings
+
+## Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+
+## King iOS App submodule
+KingiOS-App/
+
+## IDE
+*.swp
+*.swo
+*~
+.DS_Store
