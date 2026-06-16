@@ -4,7 +4,7 @@ namespace KingIOS.Services;
 
 public class IpaService
 {
-    public string GitHubRepoUrl { get; set; } = "https://github.com/KingiOS/KingiOS-IPA";
+    public string GitHubRepoUrl { get; set; } = "https://github.com/kingyorkson/KingiOS-IPA";
 
     public async Task<bool> DownloadLatestIpa(string destinationPath, IProgress<int>? progress = null)
     {

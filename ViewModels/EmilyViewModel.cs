@@ -8,7 +8,7 @@ public class EmilyViewModel : BaseViewModel
 {
     private readonly IpaService _ipaService;
     private string _statusMessage = "Download the King iOS IPA to test the custom Android on your iPhone.";
-    private string _gitHubUrl = "https://github.com/KingiOS/KingiOS-IPA";
+    private string _gitHubUrl = "https://github.com/kingyorkson/KingiOS-IPA";
     private int _progressValue;
 
     public string StatusMessage
