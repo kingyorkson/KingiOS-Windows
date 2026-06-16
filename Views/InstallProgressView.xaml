@@ -1,0 +1,80 @@
+<Page x:Class="KingIOS.Views.InstallProgressView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Background="#1A1A2E"
+      Title="Installing King iOS">
+
+    <Page.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis"/>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="#16213E" BorderBrush="#2A2A4A" BorderThickness="0,0,0,1">
+            <TextBlock Text="Installation" FontSize="20" FontWeight="Bold" Foreground="White" 
+                       VerticalAlignment="Center" Margin="20,0"/>
+        </Border>
+
+        <Grid Grid.Row="1">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" MaxWidth="500" Margin="30">
+
+                <!-- Progress Section -->
+                <StackPanel Visibility="{Binding ShowProgress, Converter={StaticResource BoolToVis}}">
+                    <TextBlock Text="Installing King iOS" FontSize="28" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"/>
+                    <TextBlock Text="Please do not disconnect your device." FontSize="14" Foreground="#A0A0B0" HorizontalAlignment="Center" Margin="0,5,0,30"/>
+
+                    <Border Background="#16213E" CornerRadius="12" Padding="30">
+                        <StackPanel>
+                            <ProgressBar Value="{Binding ProgressValue}" 
+                                         Minimum="0" Maximum="100"
+                                         Height="10"
+                                         Foreground="#E94560"
+                                         Background="#2A2A4A"
+                                         BorderThickness="0"
+                                         Margin="0,0,0,15"/>
+                            <TextBlock Text="{Binding ProgressValue, StringFormat='{}{0}% Complete'}" 
+                                       FontSize="14" 
+                                       Foreground="#E94560" 
+                                       HorizontalAlignment="Center"
+                                       Margin="0,0,0,10"/>
+                            <TextBlock Text="{Binding StatusMessage}" 
+                                       FontSize="13" 
+                                       Foreground="#A0A0B0" 
+                                       HorizontalAlignment="Center"
+                                       TextWrapping="Wrap"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+
+                <!-- Complete Section -->
+                <StackPanel Visibility="{Binding ShowComplete, Converter={StaticResource BoolToVis}}">
+                    <Border Background="#1A3A1A" CornerRadius="12" Padding="30" BorderBrush="#4CAF50" BorderThickness="1">
+                        <StackPanel>
+                            <TextBlock Text="✓ Installation Complete" 
+                                       FontSize="24" 
+                                       FontWeight="Bold" 
+                                       Foreground="#4CAF50" 
+                                       HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding StatusMessage}" 
+                                       FontSize="14" 
+                                       Foreground="#A0A0B0" 
+                                       HorizontalAlignment="Center" 
+                                       Margin="0,15,0,0"
+                                       TextWrapping="Wrap"/>
+                            <Button Content="Done" 
+                                    Command="{Binding DoneCommand}"
+                                    Style="{StaticResource PrimaryButton}"
+                                    Height="45"
+                                    FontSize="16"
+                                    Margin="0,25,0,0"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>
